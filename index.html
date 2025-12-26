@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+  <html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>H.M. LUAN Lab</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+          <style>
+          /* 全局样式 */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+        
+        :root {
+          --primary: #1a1a2e;
+            --secondary: #e94560;
+            --accent: #0f3460;
+            --light: #f5f5f5;
+            --dark: #16213e;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        body {
+          background-color: var(--light);
+          color: #333;
+            line-height: 1.6;
+          overflow-x: hidden;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        
+        section {
+          padding: 80px 0;
+        }
+        
+        .section-title {
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--primary);
+          font-size: 36px;
+          position: relative;
+        }
+        
+        .section-title:after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 4px;
+          background-color: var(--secondary);
+          margin: 15px auto;
+        }
+        
+        .btn {
+          display: inline-block;
+          background-color: var(--secondary);
+          color: white;
+          padding: 12px 30px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn:hover {
+          background-color: var(--accent);
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 导航栏样式 */
+          .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.3s;
+          }
+        
+        .navbar.scrolled {
+          padding: 10px 0;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .logo {
+          color: white;
+          font-size: 24px;
+          font-weight: 700;
+          text-decoration: none;
+        }
+        
+        .logo span {
+          color: var(--secondary);
+        }
+        
+        .nav-links {
+          display: flex;
+          list-style: none;
+        }
+        
+        .nav-links li {
+          margin-left: 30px;
+        }
+        
+        .nav-links a {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+          color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+        }
+        
+        /* 主页英雄区域 */
+          .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(15, 52, 96, 0.8)), 
+            url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+          }
+        
+        .hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        
+        .hero h1 {
+          font-size: 48px;
+          margin-bottom: 20px;
+          line-height: 1.2;
+        }
+        
+        .hero p {
+          font-size: 20px;
+          margin-bottom: 30px;
+        }
+        
+        /* 研究领域部分 */
+          .research-areas {
+            background-color: white;
+          }
+        
+        .research-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+        }
+        
+        .research-card {
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+          padding: 30px;
+          transition: all 0.3s;
+          text-align: center;
+        }
+        
+        .research-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-icon {
+          font-size: 40px;
+          color: var(--secondary);
+          margin-bottom: 20px;
+        }
+        
+        .research-card h3 {
+          font-size: 22px;
+          margin-bottom: 15px;
+          color: var(--primary);
+        }
+        
+        .research-card p {
+          color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* 研究成果展示部分 */
+          .research-showcase {
+            background-color: var(--light);
+          }
+        
+        .showcase-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
+        }
+        
+        .showcase-title {
+          font-size: 32px;
+          color: var(--primary);
+        }
+        
+        .view-all {
+          color: var(--secondary);
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+          text-decoration: underline;
+        }
+        
+        .card-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 25px;
+        }
+        
+        .showcase-card {
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+          overflow: hidden;
+          transition: all 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .showcase-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+          height: 180px;
+          width: 100%;
+          background-size: cover;
+          background-position: center;
+        }
+        
+        .card-content {
+          padding: 20px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .card-category {
+          display: inline-block;
+          background-color: var(--secondary);
+          color: white;
+          padding: 4px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+          margin-bottom: 12px;
+        }
+        
+        .card-title {
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: var(--primary);
+          line-height: 1.4;
+        }
+        
+        .card-title a {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+        .card-title a:hover {
+          color: var(--secondary);
+        }
+        
+        .card-excerpt {
+          color: #666;
+            font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 15px;
+          flex-grow: 1;
+        }
+        
+        .card-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: auto;
+          font-size: 12px;
+          color: #999;
+        }
+        
+        .card-link {
+          color: var(--secondary);
+          text-decoration: none;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          transition: all 0.3s;
+        }
+        
+        .card-link:hover {
+          text-decoration: underline;
+        }
+        
+        .card-link::after {
+          content: "→";
+          margin-left: 5px;
+          transition: transform 0.3s;
+        }
+        
+        .card-link:hover::after {
+          transform: translateX(3px);
+        }
+        
+        /* 翻页导航 */
+          .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+          }
+        
+        .page-numbers {
+          display: flex;
+          list-style: none;
+        }
+        
+        .page-numbers li {
+          margin: 0 5px;
+        }
+        
+        .page-numbers a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          color: #666;
+            text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+        
+        .page-numbers a:hover, .page-numbers a.active {
+          background-color: var(--secondary);
+          color: white;
+        }
+        
+        /* 团队成员部分 */
+          .team {
+            background-color: white;
+          }
+        
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 30px;
+        }
+        
+        .team-member {
+          text-align: center;
+          background-color: var(--light);
+          border-radius: 10px;
+          padding: 30px 20px;
+          transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: 0 auto 20px;
+          border: 5px solid var(--secondary);
+        }
+        
+        .member-name {
+          font-size: 20px;
+          margin-bottom: 5px;
+          color: var(--primary);
+        }
+        
+        .member-role {
+          color: var(--secondary);
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        
+        .member-bio {
+          color: #666;
+            font-size: 14px;
+          line-height: 1.5;
+        }
+        
+        /* 页脚 */
+          footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+          }
+        
+        .footer-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 40px;
+          margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+          font-size: 20px;
+          margin-bottom: 20px;
+          color: var(--secondary);
+        }
+        
+        .footer-links {
+          list-style: none;
+        }
+        
+        .footer-links li {
+          margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+          color: #ddd;
+            text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+          color: var(--secondary);
+        }
+        
+        .contact-info {
+          list-style: none;
+        }
+        
+        .contact-info li {
+          margin-bottom: 15px;
+          display: flex;
+          align-items: flex-start;
+        }
+        
+        .contact-info i {
+          margin-right: 10px;
+          color: var(--secondary);
+        }
+        
+        .social-links {
+          display: flex;
+          gap: 15px;
+          margin-top: 20px;
+        }
+        
+        .social-links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--dark);
+          color: white;
+          text-decoration: none;
+          transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+          background-color: var(--secondary);
+          transform: translateY(-3px);
+        }
+        
+        .copyright {
+          text-align: center;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+          @media (max-width: 1200px) {
+            .card-grid {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
+        
+        @media (max-width: 992px) {
+          .hero h1 {
+            font-size: 40px;
+          }
+          
+          .section-title {
+            font-size: 32px;
+          }
+          
+          .card-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .mobile-menu-btn {
+            display: block;
+          }
+          
+          .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .nav-links.active {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          
+          .nav-links li {
+            margin: 10px 0;
+          }
+          
+          .hero h1 {
+            font-size: 32px;
+          }
+          
+          .hero p {
+            font-size: 18px;
+          }
+          
+          .section-title {
+            font-size: 28px;
+          }
+          
+          .showcase-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          .view-all {
+            margin-top: 10px;
+          }
+          
+          .card-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .container {
+            padding: 0 15px;
+          }
+          
+          section {
+            padding: 60px 0;
+          }
+        }
+        </style>
+          </head>
+          <body>
+          <!-- 导航栏 -->
+          <nav class="navbar">
+          <div class="container nav-container">
+          <a href="#" class="logo">H.M. LUAN <span> Lab</span></a>
+          <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#showcase">News</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact" class="btn">Contact</a></li>
+          </ul>
+          </div>
+          </nav>
+          
+          <!-- 主页英雄区域 -->
+          <section id="home" class="hero">
+          <div class="container">
+          <div class="hero-content">
+          <h1>Mass Spec & Comput Biomed</h1>
+          <p>We are an interdisciplinary research team dedicated to innovative studies in fields such as mass spectrometry-based omics, environmental chemical exposure, and biomedicine, aiming to cultivate future scientific leaders.</p>
+          <a href="#research" class="btn">Our Research</a>
+          </div>
+          </div>
+          </section>
+          
+          <!-- 研究领域部分 -->
+          <section id="research" class="research-areas">
+          <div class="container">
+          <h2 class="section-title">RESEARCH</h2>
+          <div class="research-grid">
+          <div class="research-card">
+          <div class="research-icon">
+          <i class="fas fa-brain"></i>
+          </div>
+          <h3>Biomass spectrometry technology and Molecular Spatiotemporal Dynamic analysis</h3>
+          
+         
+          </div>
+          <div class="research-card">
+          <div class="research-icon">
+          <i class="fas fa-dna"></i>
+          </div>
+          <h3>Environmental behavior of new pollutants and health risk intervention</h3>
+          
+          
+          </div>
+          <div class="research-card">
+          <div class="research-icon">
+          <i class="fas fa-atom"></i>
+          </div>
+          <h3>Complex disease metabolic mechanisms and transformation applications empowered by AI-mass spectrometry multi-omics</h3>
+         
+          
+          </div>
+          </div>
+          </div>
+          </section>
+          
+         <!-- 研究成果展示部分 -->
+<section id="showcase" class="research-showcase">
+    <div class="container">
+        <div class="showcase-header">
+            <h2 class="showcase-title">News</h2>
+            <a href="#" class="view-all">News →</a>
+        </div>
+        
+        <div class="card-grid" id="research-cards">
+            <!-- 卡片 1: ChromaPave -->
+            <div class="showcase-card" data-page="1">
+                <div class="card-image" style="background-image: url('https://bpic.588ku.com/back_origin_min_pic/23/06/15/58dc9c81536abf84ed4db8cfa68bbe3d.jpg!/fw/750/quality/99/unsharp/true/compress/true');"></div>
+                <div class="card-content">
+                    <span class="card-category">Tools</span>
+                    <h3 class="card-title"><a href="https://example.com/research1" target="_blank">ChromaPave</a></h3>
+                    <p class="card-excerpt">A freely available, open-source application specifically engineered to accelerate and enhance mass spectrometry experimentation, with a dedicated focus on exposomic and metabolomic analysis.</p>
+                    <div class="card-meta">
+                        <span class="card-date">2023年10月15日</span>
+                        <a href="research1.html" target="_blank" class="card-link">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- 卡片 2: A new method for medical image analysis based on deep learning -->
+            <div class="showcase-card" data-page="1">
+                <div class="card-image" style="background-image: url('https://vcg03.cfp.cn/creative/vcg/800/new/VCG211388486480.jpg');"></div>
+                <div class="card-content">
+                    <span class="card-category">Architectures</span>
+                    <h3 class="card-title"><a href="https://example.com/research2" target="_blank">A new method for medical image analysis based on deep learning</a></h3>
+                    <p class="card-excerpt">An innovative deep learning architecture that can significantly enhance the accuracy and efficiency of medical image segmentation, achieving state-of-the-art levels on multiple public datasets.</p>
+                    <div class="card-meta">
+                        <span class="card-date">2023年10月15日</span>
+                        <a href="research2.html" target="_blank" class="card-link">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 其他卡片已被删除 -->
+        </div>
+    </div>
+</section>
+          
+          
+        
+          
+         <!-- 团队成员部分 -->
+<section id="team" class="team">
+  <div class="container">
+    <h2 class="section-title">团队成员</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="https://teacher.gdut.edu.cn/_resources/group1/M00/00/0B/rB8AEGQKv-eAdnj1AAIakD0StqY347.png?randomid=1762741252970" alt="张教授" class="member-photo">
+        <h3 class="member-name">Hemi Luan</h3>
+        <p class="member-role">Professor</p>
+        <p class="member-bio">Professor Luan's research focuses on the technological development and transformational application of bioomics and informatics in complex environments - life and health. In recent years, he has been dedicated to the identification of toxic molecules in environmental exposure and the exploration of their health risk mechanisms, and has been actively promoting the cross-integration of advanced mass spectrometry analysis methods and artificial intelligence technologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+          
+          <!-- 页脚 -->
+          <footer id="contact">
+          <div class="container">
+          <div class="footer-content">
+          <div class="footer-column">
+          <h3>About Us</h3>
+          <p>Our team specializes in advanced mass spectrometry, intelligent algorithm development, and interdisciplinary platforms. Our research supports cutting-edge applications in food safety, environmental health, non-invasive disease diagnosis, and precision medicine.</p>
+          <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-researchgate"></i></a>
+          </div>
+          </div>
+          <div class="footer-column">
+          <h3>Quick Link</h3>
+          <ul class="footer-links">
+          <li><a href="#home">home page</a></li>
+          <li><a href="#research">research field</a></li>
+          <li><a href="#showcase">research achievement</a></li>
+          <li><a href="#team">team members</a></li>
+          <li><a href="#">join us</a></li>
+          </ul>
+          </div>
+          <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+          <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>
+28/5000
+Room 502, West of the Science and Technology South Building, University Town Campus, Guangdong University of Technology, Panyu , Guangzhou </span>
+          </li>
+          <li>
+          <i class="fas fa-phone"></i>
+          <span>(+86)13590325394</span>
+          </li>
+          <li>
+          <i class="fas fa-envelope"></i>
+          <span>luanhm@gdut.edu.cn</span>
+          </li>
+          </ul>
+          </div>
+          </div>
+          <div class="copyright">
+          <p>&copy; 2025  Luan Lab. All rights reserved.</p>
+          </div>
+          </div>
+          </footer>
+          
+          <script>
+          // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+        
+        // 移动端菜单切换
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+        
+        // 为卡片添加点击效果
+        document.querySelectorAll('.showcase-card').forEach(card => {
+          card.addEventListener('click', function(e) {
+            // 如果点击的是链接，不阻止默认行为
+            if (e.target.tagName === 'A' || e.target.parentElement.tagName === 'A') {
+              return;
+            }
+            
+            // 否则找到卡片内的链接并点击
+            const link = this.querySelector('.card-title a');
+            if (link) {
+              window.open(link.href, '_blank');
+            }
+          });
+          
+          // 添加键盘导航支持
+          card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              const link = this.querySelector('.card-title a');
+              if (link) {
+                window.open(link.href, '_blank');
+              }
+            }
+          });
+          
+          // 使卡片可通过键盘聚焦
+          card.setAttribute('tabindex', '0');
+        });
+        
+        // 翻页功能
+        function showPage(pageNumber) {
+          // 隐藏所有卡片
+          document.querySelectorAll('.showcase-card').forEach(card => {
+            card.style.display = 'none';
+          });
+          
+          // 显示当前页面的卡片
+          document.querySelectorAll(`.showcase-card[data-page="${pageNumber}"]`).forEach(card => {
+            card.style.display = 'flex';
+          });
+          
+          // 更新分页按钮状态
+          document.querySelectorAll('.page-numbers a').forEach(link => {
+            link.classList.remove('active');
+            if (parseInt(link.getAttribute('data-page')) === pageNumber) {
+              link.classList.add('active');
+            }
+          });
+        }
+        
+        // 初始化显示第一页
+        showPage(1);
+        
+        // 为分页按钮添加点击事件
+        document.querySelectorAll('.page-numbers a').forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageNumber = parseInt(this.getAttribute('data-page'));
+            showPage(pageNumber);
+          });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+              
+              // 移动端菜单关闭
+              if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+              }
+            }
+          });
+        });
+        </script>
+          </body>
+          </html>
