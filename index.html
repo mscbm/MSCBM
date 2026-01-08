@@ -666,222 +666,86 @@
           </div>
           </section>
           
+<!-- 研究成果展示部分 -->
 <section id="showcase" class="research-showcase">
-    <style>
-        /* 1. 基础样式 */
-        :root {
-            --primary-blue: #2c3e50;
-            --accent-blue: #3498db;
-            --light-gray: #f8f9fa;
-            --text-gray: #555;
-        }
-
-        .research-showcase {
-            padding: 60px 20px;
-            background-color: #ffffff;
-            min-height: 600px; /* 防止内容加载前页面坍塌 */
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .showcase-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        /* 2. 网格布局：确保默认可见 */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        @media (min-width: 1100px) {
-            .card-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* 3. 卡片样式 */
-        .showcase-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            display: flex; /* 确保卡片是 Flex 容器 */
-            flex-direction: column;
-            border: 1px solid #eee;
-            transition: transform 0.3s ease;
-        }
-
-        /* 关键：只有带 hidden-card 类的才隐藏 */
-        .hidden-card {
-            display: none !important;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-            background-color: #eee; /* 图片未加载时的底色 */
-        }
-
-        .card-content {
-            padding: 20px;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 1.15rem;
-            color: var(--primary-blue);
-            margin: 10px 0;
-            height: 2.8em;
-            overflow: hidden;
-        }
-
-        .card-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* 4. 分页按钮 */
-        .pagination-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .page-btn {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-        }
-
-        .page-btn.active {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-        }
-    </style>
-
     <div class="container">
         <div class="showcase-header">
-            <h2 class="showcase-title">Research Showcase</h2>
+            <h2 class="showcase-title">News</h2>
+            
         </div>
         
         <div class="card-grid" id="research-cards">
-            <div class="showcase-card">
-                <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/cpva2.png');"></div>
-                <div class="card-content">
-                    <h3 class="card-title">CPVA2.0</h3>
-                    <p class="card-excerpt">Mass spectrometry experimentation tools.</p >
-                    <a href=" " class="card-link">More →</a >
-                </div>
-            </div>
-            
-            <div class="showcase-card">
-                <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/mid.png');"></div>
-                <div class="card-content">
-                    <h3 class="card-title">mID</h3>
-                    <p class="card-excerpt">Identification of chemical molecules.</p >
-                    <a href="http://202.116.153.166:8082/app_mid/" class="card-link">More →</a >
-                </div>
-            </div>
-
-            <div class="showcase-card">
-                <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/statTarget.png');"></div>
-                <div class="card-content">
-                    <h3 class="card-title">statTarget</h3>
-                    <p class="card-excerpt">Signal correction and interpretations.</p >
-                    <a href="https://stattarget.github.io/" class="card-link">More →</a >
-                </div>
-            </div>
-
-            <div class="showcase-card">
-                <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/Mass.png');"></div>
-                <div class="card-content">
-                    <h3 class="card-title">TrAC Trends</h3>
-                    <p class="card-excerpt">Mass spectrometry insight into exposome.</p >
-                    <a href="https://www.sciencedirect.com/science/article/pii/S0165993625002298" class="card-link">More →</a >
-                </div>
-            </div>
-
-            <div class="showcase-card">
-                <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/Nontarget.png');"></div>
-                <div class="card-content">
-                    <h3 class="card-title">ES&T Paper</h3>
-                    <p class="card-excerpt">Nontarget Analysis of PFAS.</p >
-                    <a href="https://pubs.acs.org/doi/10.1021/acs.est.4c03552" class="card-link">More →</a >
-                </div>
-            </div>
-        </div>
-
-        <div id="pagination" class="pagination-container"></div>
+            <!-- 卡片 1: CPVA2.0 -->
+                 <div class="showcase-card" data-page="1">
+    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/cpva2.png');"></div>
+    
+    <div class="card-content">
+        <span class="card-category">Tools</span>
+        <h3 class="card-title">CPVA2.0</h3>
+        <p class="card-excerpt">A freely available, open-source application specifically engineered to accelerate and enhance mass spectrometry experimentation, with a dedicated focus on exposomic and metabolomic analysis.</p>
+        <div class="card-meta"></div>
+      <a href="research1.html" target="_blank" class="card-link">more</a>
+        
     </div>
+</div>
+            
+             <!-- 卡片 2: mid -->
+       <div class="showcase-card" data-page="1">
+    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/mid.png');"></div>
+    
+    <div class="card-content">
+        <span class="card-category">Tools</span>
+        <h3 class="card-title">mID</h3>
+        <p class="card-excerpt">A Platform for mass spectrometry-based identification of chemical molecules.</p>
+        <div class="card-meta"></div>
+      <a href="http://202.116.153.166:8082/app_mid/" target="_blank" class="card-link">more</a>
+        
+    </div>
+</div>
+             <!-- 卡片 3: sta -->
+         <div class="showcase-card" data-page="1">
+    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/statTarget.png');"></div>
+    
+    <div class="card-content">
+        <span class="card-category">Tools</span>
+        <h3 class="card-title">statTarget</h3>
+        <p class="card-excerpt">A graphical user interface R Package for QC-based signal correction and interpretations of mass spectrometry-based omics data.</p>
+        <div class="card-meta"></div>
+      <a href="https://stattarget.github.io/" target="_blank" class="card-link">more</a>
+        
+    </div>
+</div>
 
-    <script>
-        // 使用这种方式确保 DOM 完全加载后再运行
-        (function() {
-            const initShowcase = function() {
-                const cardsPerPage = 4;
-                const cardGrid = document.getElementById('research-cards');
-                if (!cardGrid) return;
+           <!-- 卡片 4:  -->
+         <div class="showcase-card" data-page="1">
+    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/Mass.png');"></div>
+    
+    <div class="card-content">
+        <span class="card-category">Papers</span>
+        <h3 class="card-title">TrAC Trends in Analytical Chemistry</h3>
+        <p class="card-excerpt">Mass spectrometry insight into environmental chemical exposome and metabolome in the microbiota-gut-brain axis.</p>
+        <div class="card-meta"></div>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0165993625002298" target="_blank" class="card-link">more</a>
+        
+    </div>
+</div>
 
-                const cards = Array.from(cardGrid.getElementsByClassName('showcase-card'));
-                const paginationContainer = document.getElementById('pagination');
-                const pageCount = Math.ceil(cards.length / cardsPerPage);
-
-                function showPage(page) {
-                    cards.forEach((card, index) => {
-                        const start = (page - 1) * cardsPerPage;
-                        const end = start + cardsPerPage;
-                        if (index >= start && index < end) {
-                            card.classList.remove('hidden-card');
-                        } else {
-                            card.classList.add('hidden-card');
-                        }
-                    });
-
-                    // 更新按钮
-                    const buttons = paginationContainer.querySelectorAll('.page-btn');
-                    buttons.forEach((btn, idx) => {
-                        btn.classList.toggle('active', idx === (page - 1));
-                    });
-                }
-
-                // 清空并重新生成按钮
-                paginationContainer.innerHTML = '';
-                if (pageCount > 1) {
-                    for (let i = 1; i <= pageCount; i++) {
-                        const btn = document.createElement('button');
-                        btn.className = 'page-btn';
-                        btn.innerText = i;
-                        btn.onclick = function() { showPage(i); };
-                        paginationContainer.appendChild(btn);
-                    }
-                }
-                
-                showPage(1); // 默认显示第一页
-            };
-
-            // 如果页面还没加载完就监听，加载完了就直接运行
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initShowcase);
-            } else {
-                initShowcase();
-            }
-        })();
-    </script>
+          <!-- 卡片 5:  -->
+         <div class="showcase-card" data-page="1">
+    <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/Nontarget.png');"></div>
+    
+    <div class="card-content">
+        <span class="card-category">Papers</span>
+        <h3 class="card-title">Environmental Science & Technology</h3>
+        <p class="card-excerpt">Nontarget Analysis of Legacy and Emerging PFAS in a Lithium-Ion Power Battery Recycling Park and Their Possible Toxicity Measured Using High-Throughput Phenotype Screening</p>
+        <div class="card-meta"></div>
+      <a href="https://pubs.acs.org/doi/10.1021/acs.est.4c03552" target="_blank" class="card-link">more</a>
+        
+    </div>
+</div>
+            <!-- 其他卡片已被删除 -->
+        </div>
+    </div>
 </section>
 
 
