@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+  <html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Members - MSCBM</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+          <style>
+          /* 全局样式 */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+        
+        :root {
+          --primary: #1a1a2e;
+            --secondary: #e94560;
+            --accent: #0f3460;
+            --light: #f5f5f5;
+            --dark: #16213e;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        body {
+          background-color: var(--light);
+          color: #333;
+            line-height: 1.6;
+          overflow-x: hidden;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        
+        section {
+          padding: 80px 0;
+        }
+        
+        .section-title {
+          text-align: center;
+          margin-bottom: 50px;
+          color: var(--primary);
+          font-size: 36px;
+        }
+        
+        .section-title:after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 4px;
+          background-color: var(--secondary);
+          margin: 15px auto;
+        }
+        
+        .btn {
+          display: inline-block;
+          background-color: var(--secondary);
+          color: white;
+          padding: 12px 30px;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s;
+          border: none;
+          cursor: pointer;
+        }
+        
+        .btn:hover {
+          background-color: var(--accent);
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+     /* 导航栏样式 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary);
+  padding: 15px 0;
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.navbar.scrolled {
+  padding: 10px 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center; /* 新增：确保列表项内容垂直居中 */
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: inline-block; /* 新增：使链接可控制尺寸 */
+  line-height: 1.5; /* 新增：设置行高以改善垂直对齐 */
+  vertical-align: middle; /* 新增：进一步优化垂直对齐 */
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+        
+        /* 团队成员部分 */
+
+        .team {
+
+          background-color: white;
+
+        }
+
+        
+
+        .team-grid {
+
+          display: grid;
+
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+          gap: 30px;
+
+        }
+
+        
+
+        .team-member {
+
+          text-align: center;
+
+          background-color: var(--light);
+
+          border-radius: 10px;
+
+          padding: 30px 20px;
+
+          transition: all 0.3s;
+
+          min-height: 280px;
+
+          display: flex;
+
+          flex-direction: column;
+
+          justify-content: center;
+
+        }
+
+        
+
+        .team-member:hover {
+
+          transform: translateY(-5px);
+
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        }
+
+        
+
+        .member-photo {
+
+          width: 150px;
+
+          height: 150px;
+
+          border-radius: 50%;
+
+          object-fit: cover;
+
+          margin: 0 auto 20px;
+
+          border: 5px solid var(--secondary);
+
+        }
+
+        
+
+        .member-name {
+
+          font-size: 20px;
+
+          margin-bottom: 20px;
+
+          color: var(--primary);
+
+          min-height: 50px;
+
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+        }
+
+        
+
+        .member-role {
+
+          color: var(--secondary);
+
+          font-weight: 600;
+
+          margin-bottom: 15px;
+
+        }
+
+        
+
+        .member-bio {
+
+          color: #666;
+
+            font-size: 14px;
+
+          line-height: 1.5;
+
+        }
+        
+        /* 页脚 */
+          footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+          }
+        
+        .footer-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 40px;
+          margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+          font-size: 20px;
+          margin-bottom: 20px;
+          color: var(--secondary);
+        }
+        
+        .footer-links {
+          list-style: none;
+        }
+        
+        .footer-links li {
+          margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+          color: #ddd;
+            text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+          color: var(--secondary);
+        }
+        
+        .contact-info {
+          list-style: none;
+        }
+        
+        .contact-info li {
+          margin-bottom: 15px;
+          display: flex;
+          align-items: flex-start;
+        }
+        
+        .contact-info i {
+          margin-right: 10px;
+          color: var(--secondary);
+        }
+        
+        .social-links {
+          display: flex;
+          gap: 15px;
+          margin-top: 20px;
+        }
+        
+        .social-links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--dark);
+          color: white;
+          text-decoration: none;
+          transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+          background-color: var(--secondary);
+          transform: translateY(-3px);
+        }
+        
+        .copyright {
+          text-align: center;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+          @media (max-width: 1200px) {
+            .card-grid {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
+        
+        @media (max-width: 992px) {
+          .hero h1 {
+            font-size: 40px;
+          }
+          
+          .section-title {
+            font-size: 32px;
+          }
+          
+          .card-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .mobile-menu-btn {
+            display: block;
+          }
+          
+          .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          }
+          
+          .nav-links.active {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          
+          .nav-links li {
+            margin: 10px 0;
+          }
+          
+          .hero h1 {
+            font-size: 32px;
+          }
+          
+          .hero p {
+            font-size: 18px;
+          }
+          
+          .section-title {
+            font-size: 28px;
+          }
+          
+          .showcase-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          
+          .view-all {
+            margin-top: 10px;
+          }
+          
+          .card-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .container {
+            padding: 0 15px;
+          }
+          
+          section {
+            padding: 60px 0;
+          }
+        }
+          </style>
+          </head>
+          <body>
+          <!-- 导航栏 -->
+          <nav class="navbar">
+          <div class="container nav-container">
+          <a href="index.html" class="logo">MSCB<span style="color: var(--secondary);">M</span></a>
+          <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#showcase">News</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="index.html#contact" class="btn">Contact</a></li>
+          </ul>
+          </div>
+          </nav>
+          
+          <!-- 团队成员部分 -->
+        <section id="team" class="team">
+          <div class="container">
+            <div style="display: flex; gap: 40px; align-items: flex-start;">
+              <!-- Category buttons -->
+              <div style="flex: 0 0 200px; background-color: var(--light); padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <h3 style="margin-bottom: 20px; color: var(--primary); font-size: 18px;">Categories</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <button onclick="showSection('professor')" id="btn-professor" style="padding: 12px 20px; background-color: var(--secondary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Professor</button>
+                  <button onclick="showSection('first-year')" id="btn-first-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">研一</button>
+                  <button onclick="showSection('second-year')" id="btn-second-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">研二</button>
+                  <button onclick="showSection('third-year')" id="btn-third-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">研三</button>
+                </div>
+              </div>
+              <!-- Team members categories -->
+              <div style="flex: 1;">
+                <!-- Professor Section -->
+                <div id="professor" class="section-content" style="margin-bottom: 50px;">
+                  <h3 style="color: var(--primary); font-size: 24px; margin-bottom: 20px;">Professor</h3>
+                  <div class="team-grid">
+                    <div class="team-member">
+                      <img src="https://teacher.gdut.edu.cn/_resources/group1/M00/00/0B/rB8AEGQKv-eAdnj1AAIakD0StqY347.png?randomid=1762741252970" alt="栾合密" class="member-photo">
+                      <h3 class="member-name">
+                        <a href="https://teacher.gdut.edu.cn/luanhemi/zh_CN/index/229115/list/index.htm" target="_blank">栾合密 Hemi Luan</a>
+                      </h3>
+
+
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 研三 Section -->
+                <div id="third-year" class="section-content" style="margin-bottom: 50px; display: none;">
+                  <h3 style="color: var(--primary); font-size: 24px; margin-bottom: 20px;">研三</h3>
+                  <div class="team-grid">
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/szf.jpg" alt="孙志繁" class="member-photo">
+                      <h3 class="member-name"><a href="zhifan-sun.html" target="_blank">孙志繁 Zhifan Sun</a></h3>
+
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zy.jpg" alt="赵颖" class="member-photo">
+                      <h3 class="member-name"><a href="zhao-ying.html" target="_blank">赵颖 Zhao Ying</a></h3>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 研二 Section -->
+                <div id="second-year" class="section-content" style="margin-bottom: 50px; display: none;">
+                  <h3 style="color: var(--primary); font-size: 24px; margin-bottom: 20px;">研二</h3>
+                  <div class="team-grid">
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/wzj.jpg" alt="吴泽钧" class="member-photo">
+                      <h3 class="member-name"><a href="zejun-wu.html" target="_blank">吴泽钧 Zejun Wu</a></h3>
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/oyh2.jpg" alt="区逸华" class="member-photo">
+                      <h3 class="member-name"><a href="yihua-ou.html" target="_blank">区逸华 Yihua Ou</a></h3>
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/lyw2.png" alt="刘耀蔚" class="member-photo">
+                      <h3 class="member-name"><a href="yaowei-liu.html" target="_blank">刘耀蔚 Yaowei Liu</a></h3>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 研一 Section -->
+                <div id="first-year" class="section-content" style="margin-bottom: 50px; display: none;">
+                  <h3 style="color: var(--primary); font-size: 24px; margin-bottom: 20px;">研一</h3>
+                  <div class="team-grid">
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/hxb.jpg" alt="黄学斌" class="member-photo">
+                      <h3 class="member-name"><a href="xuebin-huang.html" target="_blank">黄学斌 Xuebin Huang</a></h3>
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zq.jpg" alt="郑倩" class="member-photo">
+                      <h3 class="member-name"><a href="zheng-qian.html" target="_blank">郑倩 Zheng Qian</a></h3>
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/lzx.jpg" alt="李子昕" class="member-photo">
+                      <h3 class="member-name"><a href="zixin-li.html" target="_blank">李子昕 Zixin Li</a></h3>
+                    </div>
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zyk.jpg" alt="曾宇康" class="member-photo">
+                      <h3 class="member-name"><a href="yukang-zeng.html" target="_blank">曾宇康 Yukang Zeng</a></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+          
+          <!-- 页脚 -->
+          <footer id="contact">
+          <div class="container">
+          <div class="footer-content">
+          <div class="footer-column">
+          <h3>About Us</h3>
+          <p>Our team specializes in advanced mass spectrometry, intelligent algorithm development, and interdisciplinary platforms. Our research supports cutting-edge applications in food safety, environmental health, non-invasive disease diagnosis, and precision medicine.</p>
+          </div>
+          <div class="footer-column">
+          <h3>Quick Link</h3>
+          <ul class="footer-links">
+          <li><a href="index.html">home page</a></li>
+          <li><a href="index.html#showcase">research achievement</a></li>
+          <li><a href="team.html">team members</a></li>
+          
+          </ul>
+          </div>
+          <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+          <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>
+28/5000
+Room 502, West of the Science and Technology South Building, University Town Campus, Guangdong University of Technology, Panyu , Guangzhou </span>
+          </li>
+          <li>
+          <i class="fas fa-phone"></i>
+          <span>020 3932 5249</span>
+          </li>
+          <li>
+          <i class="fas fa-envelope"></i>
+          <span>mscbm@163.com</span>
+          </li>
+          </ul>
+          </div>
+          </div>
+          <div class="copyright">
+          <p>&copy; 2025  MSCBM. All rights reserved.</p>
+          </div>
+          </div>
+          </footer>
+          
+          <script>
+          // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+          const navbar = document.querySelector('.navbar');
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+        
+        // 移动端菜单切换
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+              
+              // 移动端菜单关闭
+              if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+              }
+            }
+          });
+        });
+        
+        // Category section toggling
+        function showSection(sectionId) {
+          // Hide all sections
+          document.querySelectorAll('.section-content').forEach(section => {
+            section.style.display = 'none';
+          });
+          
+          // Reset all buttons
+          document.querySelectorAll('#btn-professor, #btn-first-year, #btn-second-year, #btn-third-year').forEach(btn => {
+            btn.style.backgroundColor = '#f8f9fa';
+            btn.style.color = 'var(--primary)';
+            btn.style.border = '1px solid #dee2e6';
+          });
+          
+          // Show the selected section
+          document.getElementById(sectionId).style.display = 'block';
+          
+          // Highlight the selected button
+          const btnId = 'btn-' + sectionId;
+          const selectedBtn = document.getElementById(btnId);
+          if (selectedBtn) {
+            selectedBtn.style.backgroundColor = 'var(--secondary)';
+            selectedBtn.style.color = 'white';
+            selectedBtn.style.border = 'none';
+          }
+        }
+        </script>
+          </body>
+          </html>
