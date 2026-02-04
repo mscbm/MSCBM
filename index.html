@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MSCB Lab</title>
+        <title>MSCBM</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
           <style>
           /* 全局样式 */
@@ -149,7 +149,7 @@
         /* 主页英雄区域 */
           .hero {
             height: 100vh;
-            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(15, 52, 96, 0.8)), 
+            background: linear-gradient(rgba(26, 26, 46, 0.3), rgba(15, 52, 96, 0.3)), 
             url('https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/mit.jpg');
             background-size: cover;
             background-position: center;
@@ -168,6 +168,7 @@
           font-size: 48px;
           margin-bottom: 20px;
           line-height: 1.2;
+          opacity: 0.5;
         }
         
         .hero p {
@@ -661,15 +662,14 @@
           <!-- 导航栏 -->
           <nav class="navbar">
           <div class="container nav-container">
-          <a href="#" class="logo">MSCB<span> Lab</span></a>
+          <a href="#" class="logo">MSCB<span style="color: var(--secondary);">M</span></a>
           <button class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
           </button>
           <ul class="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#research">Research</a></li>
           <li><a href="#showcase">News</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="team.html">Team</a></li>
           <li><a href="#contact" class="btn">Contact</a></li>
           </ul>
           </div>
@@ -680,42 +680,24 @@
           <div class="container">
           <div class="hero-content">
           <h1>Mass Spec & Comput Biomed</h1>
-          <p>We are an interdisciplinary research team dedicated to innovative studies in fields such as mass spectrometry-based omics, environmental chemical exposure, and biomedicine, aiming to cultivate future scientific leaders.</p>
-          
+
           </div>
           </div>
           </section>
           
-          <!-- 研究领域部分 -->
-          <section id="research" class="research-areas">
+          <!-- 欢迎部分 -->
+          <section id="research" class="research-areas" style="position: relative; padding: 80px 0;">
           <div class="container">
-          <h2 class="section-title">RESEARCH</h2>
-          <div class="research-grid">
-          <div class="research-card">
-          <div class="research-icon">
-          <i class="fas fa-brain"></i>
+          <div style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between;">
+          <div style="flex: 1; padding-right: 40px; text-align: left;">
+          <h2 style="color: #0066cc; font-size: 48px; font-weight: bold; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">Welcome to MSCBM</h2>
+          <p style="font-size: 18px; line-height: 1.6;">We are an interdisciplinary research team dedicated to innovative studies in fields such as mass spectrometry-based omics, environmental chemical exposure, and biomedicine, aiming to cultivate future scientific leaders.</p>
           </div>
-          <h3>Biomass spectrometry technology and Molecular Spatiotemporal Dynamic analysis</h3>
-          
-         
-          </div>
-          <div class="research-card">
-          <div class="research-icon">
-          <i class="fas fa-dna"></i>
-          </div>
-          <h3>Environmental behavior of new pollutants and health risk intervention</h3>
-          
-          
-          </div>
-          <div class="research-card">
-          <div class="research-icon">
-          <i class="fas fa-atom"></i>
-          </div>
-          <h3>Complex disease metabolic mechanisms and transformation applications empowered by AI-mass spectrometry multi-omics</h3>
-         
-          
+          <div style="flex: 1; max-width: 500px;">
+          <img src="images/banner_11.png" alt="Banner" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
           </div>
           </div>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 150px; font-weight: bold; color: rgba(0,0,0,0.05); z-index: 0; white-space: nowrap;">WELCOME</div>
           </div>
           </section>
           
@@ -796,6 +778,7 @@
         </div>
     </div>
 </section>
+
 
 <style>
 .research-showcase {
@@ -1048,87 +1031,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
           
- <!-- 团队成员部分 -->
-<section id="team" class="team">
-  <div class="container">
-    <h2 class="section-title">Team members</h2>
-    <div class="team-grid">
-      <!-- 原有栾合密卡片保持不变 -->
-      <div class="team-member">
-        <img src="https://teacher.gdut.edu.cn/_resources/group1/M00/00/0B/rB8AEGQKv-eAdnj1AAIakD0StqY347.png?randomid=1762741252970" alt="栾合密" class="member-photo">
-        <h3 class="member-name">
-          <a href="https://teacher.gdut.edu.cn/luanhemi/zh_CN/index/229115/list/index.htm" target="_blank">Hemi Luan</a>
-        </h3>
-        <p class="member-role">Professor</p>
-        <p class="member-bio">Professor Luan is a "Hundred Talents Program" distinguished professor of Guangdong University of Technology.</p>
-      </div>
-      
-      <!-- 其他成员卡片 - 已添加链接并保持对齐 -->
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/szf.jpg" alt="孙志繁" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Zhifan Sun</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Zhifan Sun is a third-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zy.jpg" alt="赵颖" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Zhao Ying</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Zhao Ying is a third-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/wzj.jpg" alt="吴泽钧" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Zejun Wu</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Zejun Wu is a second-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/oyh2.jpg" alt="区逸华" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Yihua Ou</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Yihua Ou is a second-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/lyw2.png" alt="刘耀蔚" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Yaowei Liu</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Yaowei Liu is a second-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/hxb.jpg" alt="黄学斌" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Xuebin Huang</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Xuebin Huang is a first-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zq.jpg" alt="郑倩" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Zheng Qian</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Zheng Qian is a first-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/lzx.jpg" alt="李子昕" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Zixin Li</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Zixin Li is a first-year graduate student.</p>
-      </div>
-      
-      <div class="team-member">
-        <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zyk.jpg" alt="曾宇康" class="member-photo">
-        <h3 class="member-name"><a href="https://www.baidu.com" target="_blank">Yukang Zeng</a></h3>
-        <p class="member-role">Graduate student</p>
-        <p class="member-bio">Yukang Zeng is a first-year graduate student.</p>
-      </div>
-    </div>
-  </div>
-</section>
+ 
+
           
           <!-- 页脚 -->
           <footer id="contact">
@@ -1137,20 +1041,14 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="footer-column">
           <h3>About Us</h3>
           <p>Our team specializes in advanced mass spectrometry, intelligent algorithm development, and interdisciplinary platforms. Our research supports cutting-edge applications in food safety, environmental health, non-invasive disease diagnosis, and precision medicine.</p>
-          <div class="social-links">
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-          <a href="#"><i class="fab fa-researchgate"></i></a>
-          </div>
+
           </div>
           <div class="footer-column">
           <h3>Quick Link</h3>
           <ul class="footer-links">
           <li><a href="#home">home page</a></li>
-          <li><a href="#research">research field</a></li>
           <li><a href="#showcase">research achievement</a></li>
-          <li><a href="#team">team members</a></li>
+          <li><a href="team.html">team members</a></li>
           
           </ul>
           </div>
@@ -1175,7 +1073,7 @@ Room 502, West of the Science and Technology South Building, University Town Cam
           </div>
           </div>
           <div class="copyright">
-          <p>&copy; 2025  Luan Lab. All rights reserved.</p>
+          <p>&copy; 2025  MSCBM. All rights reserved.</p>
           </div>
           </div>
           </footer>
