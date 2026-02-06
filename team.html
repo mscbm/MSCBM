@@ -159,7 +159,7 @@
 
           display: grid;
 
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
 
           gap: 30px;
 
@@ -466,14 +466,14 @@
           <div class="container">
             <div style="display: flex; gap: 40px; align-items: flex-start;">
               <!-- Category buttons -->
-              <div style="flex: 0 0 200px; background-color: var(--light); padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+              <div style="flex: 0 0 250px; background-color: var(--light); padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                 <h3 style="margin-bottom: 20px; color: var(--primary); font-size: 18px;">Categories</h3>
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                   <button onclick="showSection('professor')" id="btn-professor" style="padding: 12px 20px; background-color: var(--secondary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Professors</button>
                   <button onclick="showSection('first-year')" id="btn-first-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Grade 1 masters</button>
                   <button onclick="showSection('second-year')" id="btn-second-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Grade 2 masters</button>
                   <button onclick="showSection('third-year')" id="btn-third-year" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Grade 3 masters</button>
-                 
+                  <button onclick="showSection('former-members')" id="btn-former-members" style="padding: 12px 20px; background-color: #f8f9fa; color: var(--primary); border: 1px solid #dee2e6; border-radius: 5px; cursor: pointer; font-weight: 600; transition: all 0.3s;">Former members</button>
                 </div>
               </div>
               <!-- Team members categories -->
@@ -535,18 +535,33 @@
                     <div class="team-member">
                       <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/hxb.jpg" alt="黄学斌" class="member-photo">
                       <h3 class="member-name"><a href="xuebin-huang.html" target="_blank">黄学斌 Xuebin Huang</a></h3>
+
                     </div>
                     <div class="team-member">
                       <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/zq.jpg" alt="郑倩" class="member-photo">
                       <h3 class="member-name"><a href="zheng-qian.html" target="_blank">郑倩 Zheng Qian</a></h3>
+
                     </div>
                     <div class="team-member">
                       <img src="https://raw.githubusercontent.com/HMLuanLab/LuanLab/refs/heads/main/images/lzx.jpg" alt="李子昕" class="member-photo">
                       <h3 class="member-name"><a href="zixin-li.html" target="_blank">李子昕 Zixin Li</a></h3>
+
                     </div>
                     <div class="team-member">
                       <img src="https://raw.githubusercontent.com/mscbm/MSCBM/refs/heads/main/images/zyk.jpg" alt="曾宇康" class="member-photo">
                       <h3 class="member-name"><a href="yukang-zeng.html" target="_blank">曾宇康 Yukang Zeng</a></h3>
+
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Former members Section -->
+                <div id="former-members" class="section-content" style="margin-bottom: 50px; display: none;">
+                  <h3 style="color: var(--primary); font-size: 24px; margin-bottom: 20px;">Former members</h3>
+                  <div class="team-grid">
+                    <div class="team-member">
+                      <img src="https://raw.githubusercontent.com/mscbm/MSCBM/refs/heads/main/images/mit.jpg" alt="陈帅龙" class="member-photo">
+                      <h3 class="member-name"><a href="shuailong-chen.html" target="_blank">陈帅龙 Shuailong Chen</a></h3>
                     </div>
                   </div>
                 </div>
@@ -649,7 +664,7 @@ Room 502, West of the Science and Technology South Building, University Town Cam
           });
           
           // Reset all buttons
-          document.querySelectorAll('#btn-professor, #btn-first-year, #btn-second-year, #btn-third-year').forEach(btn => {
+          document.querySelectorAll('#btn-professor, #btn-first-year, #btn-second-year, #btn-third-year, #btn-former-members').forEach(btn => {
             btn.style.backgroundColor = '#f8f9fa';
             btn.style.color = 'var(--primary)';
             btn.style.border = '1px solid #dee2e6';
